@@ -1,0 +1,32 @@
+{
+    "name": "Android SDK",
+    "id": "android-sdk",
+    "version": "1.0.0",
+    "description": "Installs the Android SDK and command line tools.",
+    "containerEnv": {
+        "ANDROID_HOME": "/usr/local/lib/android",
+        "ANDROID_SDK_ROOT": "$ANDROID_HOME",
+        "PATH": "$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools"
+    },
+    "options": {
+        "sdk_version": {
+            "type": "string",
+            "default": "36",
+            "description": "The version of the Android SDK to install."
+        },
+        "build_tools_version": {
+            "type": "string",
+            "default": "36.0.0",
+            "description": "The version of the Android build tools to install."
+        },
+        "java_version": {
+            "type": "string",
+            "default": "25",
+            "description": "The version of Java to install."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils",
+        "ghcr.io/akhildevelops/devcontainer-features/apt"
+    ]
+}

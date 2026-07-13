@@ -1,0 +1,11 @@
+{
+    "specific_sdk": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "android-sdk": {
+                "sdk_version": "35",
+                "build_tools_version": "35.0.0"
+            }
+        }
+    }
+}
