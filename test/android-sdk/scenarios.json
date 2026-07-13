@@ -1,10 +1,15 @@
 {
     "specific_sdk": {
-        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "image": "mcr.microsoft.com/devcontainers/base:trixie",
+        
+        "build": {
+            "options": [ "--platform=linux/amd64" ]
+        },
         "features": {
             "android-sdk": {
-                "sdk_version": "35",
-                "build_tools_version": "35.0.0"
+                "sdk_version": "34",
+                "build_tools_version": "34.0.0",
+                "java_version": "25"
             }
         }
     }

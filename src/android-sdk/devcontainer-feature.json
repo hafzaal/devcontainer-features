@@ -26,7 +26,7 @@
         }
     },
     "installsAfter": [
-        "ghcr.io/devcontainers/features/common-utils",
-        "ghcr.io/akhildevelops/devcontainer-features/apt"
+        "ghcr.io/devcontainers/features/common-utils:2",
+        "ghcr.io/devcontainers-extra/features/apt-get-packages:1"
     ]
 }

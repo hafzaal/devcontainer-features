@@ -8,8 +8,8 @@ BUILD_TOOLS="build-tools;${BUILD_TOOLS_VERSION}"
 
 export DEBIAN_FRONTEND="noninteractive"
 apt update \
-    && apt install --no-install-recommends -y openjdk-25-jdk-headless usbutils wget unzip \
-    && apt clean
+    && apt-get install --no-install-recommends -y "openjdk-${JAVA_VERSION}-jdk-headless" usbutils wget unzip \
+    && apt-get clean
 
 mkdir -p "$ANDROID_HOME"
 

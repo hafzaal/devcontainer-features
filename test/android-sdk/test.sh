@@ -1,4 +1,11 @@
 #!/bin/bash
+#
+# Run the tests using:
+#devcontainer features test \
+#  --project-folder . \
+#  --features android-sdk \
+#  --base-image trixie
+#
 set -e
 
 source dev-container-features-test-lib
