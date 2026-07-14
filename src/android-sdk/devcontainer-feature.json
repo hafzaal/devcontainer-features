@@ -27,7 +27,7 @@
         },
         "repo_os_override": {
             "type": "string",
-            "enum": ["linux", "windows", "mac"],
+            "enum": ["linux", "windows", "macosx"],
             "default": "linux",
             "description": "Override the OS for the Android SDK repository. Useful for cross-platform builds"
         }
