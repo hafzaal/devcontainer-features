@@ -1,11 +1,12 @@
 {
     "name": "Android SDK",
     "id": "android-sdk",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Installs the Android SDK and command line tools.",
     "containerEnv": {
         "ANDROID_HOME": "/usr/local/lib/android",
         "ANDROID_SDK_ROOT": "$ANDROID_HOME",
+        "ANDROID_USER_HOME": "$HOME/.android",
         "PATH": "$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools"
     },
     "options": {
@@ -23,7 +24,14 @@
             "type": "string",
             "default": "25",
             "description": "The version of Java to install."
+        },
+        "repo_os_override": {
+            "type": "string",
+            "enum": ["linux", "windows", "mac"],
+            "default": "linux",
+            "description": "Override the OS for the Android SDK repository. Useful for cross-platform builds"
         }
+        
     },
     "installsAfter": [
         "ghcr.io/devcontainers/features/common-utils:2",
