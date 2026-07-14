@@ -1,6 +1,6 @@
 # Android SDK Dev Container Feature
 
-Installs the Android SDK command-line tools, platform tools, a selected Android platform, and the matching build tools. It also installs the requested Java version.
+Installs the Android SDK command-line tools, platform tools, a selected Android platform, and the matching build tools. It also installs the required Java version.
 
 ## Usage
 
@@ -10,14 +10,12 @@ Add the feature to `devcontainer.json`:
 {
     "image": "mcr.microsoft.com/devcontainers/base:trixie",
     "features": {
-        "ghcr.io/<owner>/<repository>/android-sdk:1": {}
+        "ghcr.io/hafzaal/devcontainer-features/android-sdk:latest": {}
     }
 }
 ```
 
-Replace `<owner>/<repository>` with the registry location of this feature.
-
-## Options
+## Current Option Defaults
 
 | Option | Default | Description |
 | --- | --- | --- |
@@ -30,7 +28,7 @@ For example:
 ```jsonc
 {
     "features": {
-        "ghcr.io/<owner>/<repository>/android-sdk:1": {
+        "ghcr.io/hafzaal/devcontainer-features/android-sdk:latest": {
             "sdk_version": "34",
             "build_tools_version": "34.0.0",
             "java_version": "25"
