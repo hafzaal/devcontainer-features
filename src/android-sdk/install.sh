@@ -1,17 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-if [ "${REPO_OS_OVERRIDE}" == "linux" ]; then
-    SDK_OS_VERSION="linux"
-elif [ "${REPO_OS_OVERRIDE}" == "windows" ]; then
-    SDK_OS_VERSION="win"
-elif [ "${REPO_OS_OVERRIDE}" == "macosx" ]; then
-    SDK_OS_VERSION="mac"
-else
-    SDK_OS_VERSION="${REPO_OS_OVERRIDE}"
-fi
-
-URL_SDK="https://dl.google.com/android/repository/commandlinetools-${SDK_OS_VERSION}-14742923_latest.zip"
+URL_SDK="https://dl.google.com/android/repository/commandlinetools-linux-14742923_latest.zip"
 PLATFORM="platforms;android-${SDK_VERSION}"
 BUILD_TOOLS="build-tools;${BUILD_TOOLS_VERSION}"
 

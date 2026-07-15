@@ -6,7 +6,6 @@
     "containerEnv": {
         "ANDROID_HOME": "/usr/local/lib/android",
         "ANDROID_SDK_ROOT": "$ANDROID_HOME",
-        "ANDROID_USER_HOME": "$HOME/.android",
         "PATH": "$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools"
     },
     "options": {
@@ -31,7 +30,7 @@
             "default": "linux",
             "description": "Override the OS for the Android SDK repository. Useful for cross-platform builds"
         }
-        
+
     },
     "installsAfter": [
         "ghcr.io/devcontainers/features/common-utils:2",
