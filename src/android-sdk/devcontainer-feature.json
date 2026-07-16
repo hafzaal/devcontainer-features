@@ -1,7 +1,7 @@
 {
     "name": "Android SDK",
     "id": "android-sdk",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Installs the Android SDK and command line tools.",
     "containerEnv": {
         "ANDROID_HOME": "/usr/local/lib/android",

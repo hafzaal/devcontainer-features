@@ -33,7 +33,7 @@ export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 # Save original JAVA_HOME.
 TEMP_JAVA_HOME=${JAVA_HOME}
 export JAVA_HOME=$(dirname $(dirname $(update-alternatives --list javac 2>&1 | head -n 1)))
-yes | sdkmanager "platform-tools" "${PLATFORM}" "${BUILD_TOOLS}"
+yes | sdkmanager "platform-tools" "${PLATFORM}" "${BUILD_TOOLS}" "${SOURCES}"
 
 chown -R "$_REMOTE_USER:$_REMOTE_USER" "$ANDROID_HOME"
 
