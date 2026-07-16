@@ -10,7 +10,7 @@ Add the feature to `devcontainer.json`:
 {
     "image": "mcr.microsoft.com/devcontainers/base:trixie",
     "features": {
-        "ghcr.io/hafzaal/devcontainer-features/android-sdk:latest": {}
+        "ghcr.io/hafzaal/devcontainer-features/android-sdk:1.0.3": {}
     }
 }
 ```
@@ -28,7 +28,7 @@ For example:
 ```jsonc
 {
     "features": {
-        "ghcr.io/hafzaal/devcontainer-features/android-sdk:latest": {
+        "ghcr.io/hafzaal/devcontainer-features/android-sdk:1.0.3": {
             "sdk_version": "34",
             "build_tools_version": "34.0.0",
             "java_version": "25"
