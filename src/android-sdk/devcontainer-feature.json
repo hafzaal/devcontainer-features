@@ -1,7 +1,7 @@
 {
     "name": "Android SDK",
     "id": "android-sdk",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Installs the Android SDK and command line tools.",
     "containerEnv": {
         "ANDROID_HOME": "/usr/local/lib/android",
@@ -9,6 +9,11 @@
         "PATH": "$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools"
     },
     "options": {
+        "android_home": {
+            "type": "string",
+            "default": "/usr/local/lib/android",
+            "description": "The directory in which to install the Android SDK."
+        },
         "sdk_version": {
             "type": "string",
             "default": "36",

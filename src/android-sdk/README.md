@@ -15,6 +15,7 @@ Installs the Android SDK and command line tools.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
+| android_home | The directory in which to install the Android SDK. | string | /usr/local/lib/android |
 | sdk_version | The version of the Android SDK to install. | string | 36 |
 | build_tools_version | The version of the Android build tools to install. | string | 36.0.0 |
 | java_version | The version of Java to install. | string | 25 |

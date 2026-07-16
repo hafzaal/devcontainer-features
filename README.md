@@ -10,7 +10,7 @@ Add the feature to `devcontainer.json`:
 {
     "image": "mcr.microsoft.com/devcontainers/base:trixie",
     "features": {
-        "ghcr.io/hafzaal/devcontainer-features/android-sdk:1.0.3": {}
+        "ghcr.io/hafzaal/devcontainer-features/android-sdk:1.0.4": {}
     }
 }
 ```
@@ -19,6 +19,7 @@ Add the feature to `devcontainer.json`:
 
 | Option | Default | Description |
 | --- | --- | --- |
+| `android_home` | `/usr/local/lib/android` | Directory in which to install the Android SDK. |
 | `sdk_version` | `36` | Android platform version to install. |
 | `build_tools_version` | `36.0.0` | Android build tools version to install. |
 | `java_version` | `25` | OpenJDK version to install. |
@@ -29,6 +30,7 @@ For example:
 {
     "features": {
         "ghcr.io/hafzaal/devcontainer-features/android-sdk:1.0.3": {
+            "android_home": "/opt/android-sdk",
             "sdk_version": "34",
             "build_tools_version": "34.0.0",
             "java_version": "25"

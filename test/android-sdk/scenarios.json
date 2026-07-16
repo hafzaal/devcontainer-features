@@ -9,7 +9,8 @@
             "android-sdk": {
                 "sdk_version": "34",
                 "build_tools_version": "34.0.0",
-                "java_version": "25"
+                "java_version": "25",
+                "android_home": "/opt/android-sdk"
             }
         }
     }
