@@ -16,7 +16,7 @@
         },
         "sdk_version": {
             "type": "string",
-            "default": "36",
+            "default": "36.1",
             "description": "The version of the Android SDK to install."
         },
         "build_tools_version": {

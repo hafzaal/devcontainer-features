@@ -4,6 +4,7 @@ set -e
 URL_SDK="https://dl.google.com/android/repository/commandlinetools-linux-14742923_latest.zip"
 PLATFORM="platforms;android-${SDK_VERSION}"
 BUILD_TOOLS="build-tools;${BUILD_TOOLS_VERSION}"
+SOURCES="sources;android-${SDK_VERSION}"
 
 
 export DEBIAN_FRONTEND="noninteractive"
