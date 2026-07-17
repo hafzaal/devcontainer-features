@@ -19,7 +19,9 @@ Installs the Android SDK and command line tools.
 | sdk_version | The version of the Android SDK to install. | string | 36.1 |
 | build_tools_version | The version of the Android build tools to install. | string | 36.0.0 |
 | java_version | The version of Java to install. | string | 25 |
-| repo_os_override | Override the OS for the Android SDK repository. Useful for cross-platform builds | string | linux |
+| setup_host_sdk | Install an additional SDK for the selected host operating system. | boolean | false |
+| host_os | The operating system of the host for the additional SDK. | string | linux |
+| host_sdk_dir | The directory in which to install the additional host SDK. | string | /usr/local/lib/android-host |
 
 
 
