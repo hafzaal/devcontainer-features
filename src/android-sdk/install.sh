@@ -8,9 +8,9 @@ SOURCES="sources;android-${SDK_VERSION}"
 
 
 export DEBIAN_FRONTEND="noninteractive"
-apt update \
-    && apt-get install --no-install-recommends -y "openjdk-${JAVA_VERSION}-jdk-headless" usbutils wget unzip \
-    && apt-get clean
+apt-get update
+apt-get install --no-install-recommends -y "openjdk-${JAVA_VERSION}-jdk-headless" usbutils wget unzip
+apt-get clean
 
 mkdir -p "$ANDROID_HOME"
 
@@ -31,8 +31,12 @@ rm androidsdk.zip
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 
 # Save original JAVA_HOME.
-TEMP_JAVA_HOME=${JAVA_HOME}
-export JAVA_HOME=$(dirname $(dirname $(update-alternatives --list javac 2>&1 | head -n 1)))
+TEMP_JAVA_HOME="${JAVA_HOME:-}"
+if ! JAVAC_PATH="$(command -v javac)"; then
+    echo "Unable to locate javac after installing OpenJDK ${JAVA_VERSION}." >&2
+    exit 1
+fi
+export JAVA_HOME="$(dirname "$(dirname "$(readlink -f "$JAVAC_PATH")")")"
 yes | sdkmanager "platform-tools" "${PLATFORM}" "${BUILD_TOOLS}" "${SOURCES}"
 
 chown -R "$_REMOTE_USER:$_REMOTE_USER" "$ANDROID_HOME"
