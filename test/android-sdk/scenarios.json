@@ -1,16 +1,30 @@
 {
     "specific_sdk": {
         "image": "mcr.microsoft.com/devcontainers/base:trixie",
-        
         "build": {
             "options": [ "--platform=linux/amd64" ]
         },
+        "updateRemoteUserUID": false,
         "features": {
             "android-sdk": {
                 "sdk_version": "34",
                 "build_tools_version": "34.0.0",
                 "java_version": "25",
                 "android_home": "/opt/android-sdk"
+            }
+        }
+    },
+    "host_sdk": {
+        "image": "mcr.microsoft.com/devcontainers/base:trixie",
+        "build": {
+            "options": [ "--platform=linux/amd64" ]
+        },
+        "updateRemoteUserUID": false,
+        "features": {
+            "android-sdk": {
+                "setup_host_sdk": true,
+                "host_os": "linux",
+                "host_sdk_dir": "/opt/android-host-sdk"
             }
         }
     }

@@ -1,7 +1,7 @@
 {
     "name": "Android SDK",
     "id": "android-sdk",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "Installs the Android SDK and command line tools.",
     "containerEnv": {
         "ANDROID_HOME": "/usr/local/lib/android",
@@ -29,11 +29,21 @@
             "default": "25",
             "description": "The version of Java to install."
         },
-        "repo_os_override": {
+        "setup_host_sdk": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install an additional SDK for the selected host operating system."
+        },
+        "host_os": {
             "type": "string",
             "enum": ["linux", "windows", "macosx"],
             "default": "linux",
-            "description": "Override the OS for the Android SDK repository. Useful for cross-platform builds"
+            "description": "The operating system of the host for the additional SDK."
+        },
+        "host_sdk_dir": {
+            "type": "string",
+            "default": "/usr/local/lib/android-host",
+            "description": "The directory in which to install the additional host SDK."
         }
 
     },

@@ -5,6 +5,8 @@ URL_SDK="https://dl.google.com/android/repository/commandlinetools-linux-1474292
 PLATFORM="platforms;android-${SDK_VERSION}"
 BUILD_TOOLS="build-tools;${BUILD_TOOLS_VERSION}"
 SOURCES="sources;android-${SDK_VERSION}"
+CONTAINER_PACKAGES=("platform-tools" "${PLATFORM}" "${BUILD_TOOLS}")
+HOST_PACKAGES=("platform-tools" "emulator" "${PLATFORM}" "${BUILD_TOOLS}" "${SOURCES}")
 
 
 export DEBIAN_FRONTEND="noninteractive"
@@ -37,8 +39,28 @@ if ! JAVAC_PATH="$(command -v javac)"; then
     exit 1
 fi
 export JAVA_HOME="$(dirname "$(dirname "$(readlink -f "$JAVAC_PATH")")")"
-yes | sdkmanager "platform-tools" "${PLATFORM}" "${BUILD_TOOLS}" "${SOURCES}"
+yes | sdkmanager "${CONTAINER_PACKAGES[@]}"
 
 chown -R "$_REMOTE_USER:$_REMOTE_USER" "$ANDROID_HOME"
+
+if [ "${SETUP_HOST_SDK}" = "true" ]; then
+    case "${HOST_OS}" in
+        linux|windows|macosx)
+            ;;
+        *)
+            echo "HOST_OS must be one of: linux, windows, macosx" >&2
+            exit 1
+            ;;
+    esac
+
+    if [ "$HOST_SDK_DIR" = "$ANDROID_HOME" ]; then
+        echo "HOST_SDK_DIR must be different from ANDROID_HOME" >&2
+        exit 1
+    fi
+
+    mkdir -p "$HOST_SDK_DIR"
+    yes | REPO_OS_OVERRIDE="$HOST_OS" sdkmanager --sdk_root="$HOST_SDK_DIR" "${HOST_PACKAGES[@]}" "emulator"
+    chown -R "$_REMOTE_USER:$_REMOTE_USER" "$HOST_SDK_DIR"
+fi
 
 export JAVA_HOME="${TEMP_JAVA_HOME}"
